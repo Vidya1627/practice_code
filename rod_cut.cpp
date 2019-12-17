@@ -27,21 +27,21 @@ void cut(int n){
     if(n == 0){
         return;
     }
-    int max = -1, f_cut = 0;
+    int max = -1, first_cut = 0;
     for(int i = 1; i <= n; i++){
         if(P[i-1]+ans[n-i] > max){
             max = P[i-1]+ans[n-i];
-            f_cut = i;
+            first_cut = i;
         }    
     }
-    cout<<f_cut<<" ";
-    cut(n - f_cut);
+    cout<<first_cut<<" ";
+    cut(n - first_cut);
 }
 
 int main() {
 	int n;
 	cin>>n;
-	cout<<f(n)<<endl;
+	cout<<"Total max value: "<<f(n)<<endl;
 	cut(n);
 	return 0;
 }
